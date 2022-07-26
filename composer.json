@@ -1,5 +1,5 @@
 {
-    "name": "callcocam/tall-tenant",
+    "name": "callcocam/tall-form",
     "type": "package",
     "description": "The packages auto slug laravel model.",
     "keywords": ["framework", "laravel", "livewire", "alpinejs", "tailwindcss"],
@@ -9,14 +9,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Tall\\Tenant\\": "src"
+            "Tall\\Form\\": "src"
         }
     },
     
     "extra": {
         "laravel": {
             "providers": [
-                "Tall\\Tenant\\TenantServiceProvider"
+                "Tall\\Form\\FormServiceProvider"
             ]
         }
     },
