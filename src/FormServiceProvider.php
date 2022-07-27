@@ -40,10 +40,10 @@ class FormServiceProvider extends ServiceProvider
 
         $this->bootAliases();
 
-        $this->publishes([__DIR__ . '/../config/tall-forms.php' => config_path('tall-forms.php')], 'tall-form-config');
-        $this->publishes([__DIR__ . '/../resources/views' => resource_path('views/vendor/tall-forms')], 'tall-form-views');
-        $this->publishes([__DIR__ . '/../resources/views/icons' => resource_path('views/vendor/tall-forms/icons')], 'tall-form-icons');
-        $this->publishes([__DIR__ . '/../resources/lang' => resource_path('lang/vendor/tall-forms'),], 'tall-form-lang');
+        $this->publishes([__DIR__ . '/../config/forms.php' => config_path('forms.php')], 'tall-form-config');
+        $this->publishes([__DIR__ . '/../resources/views' => resource_path('views/vendor/forms')], 'tall-form-views');
+        $this->publishes([__DIR__ . '/../resources/views/icons' => resource_path('views/vendor/forms/icons')], 'tall-form-icons');
+        $this->publishes([__DIR__ . '/../resources/lang' => resource_path('lang/vendor/forms'),], 'tall-form-lang');
         $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'tf');
         $this->publishes([__DIR__ . '/../public/vendor' => public_path('vendor')], 'tall-form-assets');
 
@@ -73,7 +73,7 @@ class FormServiceProvider extends ServiceProvider
 
     protected function bootViews()
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'tall-forms');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'forms');
     }
 
      /**
@@ -84,8 +84,8 @@ class FormServiceProvider extends ServiceProvider
     protected function publishConfig()
     {
         $this->publishes([
-            __DIR__.'/../config/tall-forms.php' => config_path('tall-forms.php'),
-        ], 'tall-forms');
+            __DIR__.'/../config/forms.php' => config_path('forms.php'),
+        ], 'forms');
     }
 
     
@@ -96,7 +96,7 @@ class FormServiceProvider extends ServiceProvider
      */
     protected function loadConfigs()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/tall-forms.php','tall-forms');
+        $this->mergeConfigFrom(__DIR__.'/../config/forms.php','forms');
     }
 
 
@@ -110,12 +110,12 @@ class FormServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../database/migrations/' => database_path('migrations'),
-        ], 'tall-forms-migrations');
+        ], 'forms-migrations');
 
         
         $this->publishes([
             __DIR__.'/../database/factories/' => database_path('factories'),
-        ], 'tall-forms-factories');
+        ], 'forms-factories');
         $this->publishes([
             __DIR__.'/../database/factories/' => database_path('factories'),
         ], 'tenant-factories');

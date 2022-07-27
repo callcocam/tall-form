@@ -1,6 +1,7 @@
 <?php
 return [
-    'layout'=>'tall-forms::layouts.app',
+    // 'layout'=>'forms::layouts.app',
+    "layout"=>"theme::layouts.app",
    "ckeditor"=>[       
         "editor-v2"=>[
             "js"=>"js/vendor/ckeditor5-editor-v2/build/ckeditor.js",

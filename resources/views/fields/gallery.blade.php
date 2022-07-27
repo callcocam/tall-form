@@ -3,12 +3,12 @@
         <div class="grid grid-cols-4 gap-2 mb-4">
             <div class="col-span-4 md:col-span-3">
                 @if ($fieldTitle = $field->title)
-                    @include(sprintf('tall-forms::fields.%s',$fieldTitle->type),['field'=>$fieldTitle])
+                    @include(sprintf('forms::fields.%s',$fieldTitle->type),['field'=>$fieldTitle])
                 @endif
             </div>
             <div class="col-span-4 md:col-span-1">
                 @if ($fieldOrdering = $field->ordering)
-                    @include(sprintf('tall-forms::fields.%s',$fieldOrdering->type),['field'=>$fieldOrdering])
+                    @include(sprintf('forms::fields.%s',$fieldOrdering->type),['field'=>$fieldOrdering])
                 @endif
             </div>
         </div>
@@ -39,7 +39,7 @@
         </div>
         @if ($fieldDescription = $field->description)
             <div class="my-4">
-                @include(sprintf('tall-forms::fields.%s',$fieldDescription->type),['field'=>$fieldDescription])
+                @include(sprintf('forms::fields.%s',$fieldDescription->type),['field'=>$fieldDescription])
             </div>
         @endif
     </div>

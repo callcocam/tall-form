@@ -16,7 +16,7 @@ abstract class FormModalComponent extends Component
     public $model;
 
    protected function view(){
-       return "tall-forms::form-modal";
+       return "forms::form-modal";
    }
    
    protected function fields(){
@@ -41,7 +41,7 @@ abstract class FormModalComponent extends Component
         ->with([
             'fields'=>$this->fields()
         ])
-        ->layout(config('tall-forms.form.layout'));
+        ->layout(config('forms.form.layout'));
     }
 
     protected function submit(){

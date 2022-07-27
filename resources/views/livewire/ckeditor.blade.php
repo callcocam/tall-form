@@ -2,7 +2,7 @@
     <label class="my-2" for="{{$name}}">{{ $label }}</label>
     <textarea id="{{ $name }}"> {{ $value }}</textarea>
 </div>
-<script src="{{ asset(config('tall-forms.ckeditor.editor-v2.js')) }}"></script>
+<script src="{{ asset(config('forms.ckeditor.editor-v2.js')) }}"></script>
 @push('scripts')
     <script>
         function MyCustomUploadAdapterPlugin(editor) {

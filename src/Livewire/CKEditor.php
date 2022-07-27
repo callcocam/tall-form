@@ -58,6 +58,6 @@ class CKEditor extends Component
 
     public function render()
     {
-        return view('tall-forms::livewire.ckeditor');
+        return view('forms::livewire.ckeditor');
     }
 }

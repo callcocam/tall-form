@@ -20,7 +20,7 @@ if (!function_exists('form_view')) {
         if (function_exists('theme_form_view')) {    
             return theme_form_view($path);
         }
-        return sprintf("tall-forms::%s", $path);
+        return sprintf("forms::%s", $path);
     }
 }
 

@@ -48,7 +48,7 @@
                 @endif
                 @if ($buttoms)
                     @foreach ($buttoms as $field)
-                        @include(sprintf('tall-forms::fields.%s',$field->type))
+                        @include(sprintf('forms::fields.%s',$field->type))
                     @endforeach
                 @endif
             </div>

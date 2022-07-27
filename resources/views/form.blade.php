@@ -4,7 +4,7 @@
         <div class="mx-auto rounded-md flex items-center">
             <div class="flex flex-col text-gray-800 text-center sm:text-left w-full">
                 <section class="flex w-full">
-                    @include('tall-forms::header', ['label' => \Arr::get($formAttr, 'formTitle')])
+                    @include('forms::header', ['label' => \Arr::get($formAttr, 'formTitle')])
                     @if ($preview = \Arr::get($formAttr, 'preview', false))
                         @if (\Route::has($preview))
                             <x-button href="{{ route($preview, $model) }}" target="_blank" label="{{ __('Visualizar') }}"
@@ -27,7 +27,7 @@
                         @if ($fields)
                             @foreach ($fields as $field)
                                 <div class="col-span-{{ $field->span }} ">
-                                    @include(sprintf('tall-forms::fields.%s', $field->type))
+                                    @include(sprintf('forms::fields.%s', $field->type))
                                 </div>
                             @endforeach
                         @endif
@@ -57,7 +57,7 @@
                 @endif
                 @if ($buttoms)
                     @foreach ($buttoms as $field)
-                        @include(sprintf('tall-forms::fields.%s', $field->type))
+                        @include(sprintf('forms::fields.%s', $field->type))
                     @endforeach
                 @endif
             </div>

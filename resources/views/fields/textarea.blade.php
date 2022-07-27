@@ -4,9 +4,9 @@
      right-icon="{{ $field->right_icon }}"
     corner-hint="{{ $field->corner_hint }}" label="{{ $field->label }}">
     @if ($field->append)
-        @include('tall-forms::fields.input-append')
+        @include('forms::fields.input-append')
     @endif
     @if ($field->prepend)
-        @include('tall-forms::fields.input-prepend')
+        @include('forms::fields.input-prepend')
     @endif
 </x-textarea>

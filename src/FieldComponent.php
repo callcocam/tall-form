@@ -100,7 +100,7 @@ abstract class FieldComponent extends Component
      */
     public function render()
     {
-        return view(sprintf('tall-forms::fields.%s', $this->type))->with($this->data());
+        return view(sprintf('forms::fields.%s', $this->type))->with($this->data());
     }
 
     public function __get($name){

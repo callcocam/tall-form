@@ -65,6 +65,6 @@ class Gallery extends Component
 
     public function render()
     {
-        return view('tall-forms::livewire.gallery')->with('fields', $this->fields);
+        return view('forms::livewire.gallery')->with('fields', $this->fields);
     }
 }

@@ -55,6 +55,6 @@ class Trix extends Component
 
     public function render()
     {
-        return view('tall-forms::livewire.trix');
+        return view('forms::livewire.trix');
     }
 }

@@ -34,16 +34,16 @@ abstract class FormComponent extends Component
         if(function_exists("formView")){
             return formView();
         }
-       return "tall-forms::form";
+       return "forms::form";
    }
    
 
-   protected function layout(){
-    if(function_exists("theme_layout")){
-        return theme_layout($this->layout);
-     }
-     return config('tall-forms.layout');
-   }
+    protected function layout(){
+        if(config("form.layout")){
+            return config("form.layout");
+        }
+        return config('livewire.layout');  
+    }
    
    
    /*
