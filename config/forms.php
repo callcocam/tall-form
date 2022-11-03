@@ -1,15 +1,9 @@
 <?php
+/**
+* Created by Claudio Campos.
+* User: callcocam@gmail.com, contato@sigasmart.com.br
+* https://www.sigasmart.com.br
+*/
 return [
-    // 'layout'=>'forms::layouts.app',
-    "layout"=>"theme::layouts.app",
-   "ckeditor"=>[       
-        "editor-v2"=>[
-            "js"=>"js/vendor/ckeditor5-editor-v2/build/ckeditor.js",
-            "css"=>"js/vendor/ckeditor5-editor-v2/build/styles.css",
-        ],
-       "document"=>[
-           "js"=>"js/vendor/ckeditor5-doc/build/ckeditor.js",
-           "css"=>"js/vendor/ckeditor5-doc/sample/styles.css",
-       ]
-   ]
+  
 ];

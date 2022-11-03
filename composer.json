@@ -6,7 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
-        "callcocam/tall-status": "dev-main"
+        "callcocam/tall-orm": "dev-main",
+        "callcocam/tall-theme": "dev-main"
     },
     "autoload": {
         "psr-4": {

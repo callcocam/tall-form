@@ -5,31 +5,17 @@
 * https://www.sigasmart.com.br
 */
 
-
-if (!function_exists('form_parh')) {
+if (!function_exists('form')) {
     
-    function form_parh($path = ""){
-        return sprintf("%s/%s", $path);
-    }
-}
-
-
-if (!function_exists('form_view')) {
-   
-    function form_view($path){
-        if (function_exists('theme_form_view')) {    
-            return theme_form_view($path);
+    function form($name, $fields){
+        if(collect($fields)->count()){
+            if($field = collect($fields)->filter(function($item) use($name){
+                return $item->name == $name;
+            })->first()){
+                $field->hiddenIf(false);
+                return $field;
+            }
         }
-        return sprintf("forms::%s", $path);
-    }
-}
-
-
-if (!function_exists('form_fields')) {
-    function form_fields($path){        
-        if (function_exists('theme_form_view')) {    
-            return theme_form_view(sprintf("fields.%s", $path));
-        }
-        return form_view(sprintf("fields.%s", $path));
+        return null;
     }
 }
