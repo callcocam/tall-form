@@ -1,7 +1,10 @@
-@props(['field', "flex"=>'col'])
-<label class="block {{ sprintf('col-span-%s', $field->span) }}">
+@props(['field', 'flex' => 'col'])
+<div class="{{ sprintf('col-span-%s', $field->span) }}">
+    @if ($field->isLabel)
+        <label class="block">
+    @endif
     <span>{{ $field->label }}:</span>
-    <span class="relative mt-1.5 flex flex-{{$field->flex}}">
+    <span class="relative mt-1.5 flex flex-{{ $field->flex }}">
         {{ $slot }}
         @if ($icon = data_get($field, 'icon'))
             <span
@@ -10,4 +13,7 @@
             </span>
         @endif
     </span>
-</label>
+    @if ($field->isLabel)
+        </label>
+    @endif
+</div>

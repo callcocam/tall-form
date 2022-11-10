@@ -1,11 +1,5 @@
 @props(['formAttr' => []])
-<form {{ $attributes->merge([
-    'wire:submit.prevent' => data_get($formAttr, 'action', 'saveAndStay'),
-]) }}
-    class="main-content w-full px-[var(--margin-x)] pb-8" x-init="() => {
-        $wire.on('notification', (e) => $notification(e))
-    
-    }">
+<div class="main-content w-full px-[var(--margin-x)] pb-8">
     <div class="flex items-center space-x-4 py-5 lg:py-6">
         <h2 class="text-xl font-medium text-slate-800 dark:text-navy-50 lg:text-2xl">
             {{ data_get($formAttr, 'title', 'Form Advanced') }}
@@ -39,14 +33,13 @@
             <li>{{ data_get($formAttr, 'active', 'Active') }}</li>
         </ul>
     </div>
-
     <div class="grid grid-cols-12 gap-4 sm:gap-5 lg:gap-6">
         @isset($messages)
             <div class="col-span-12">
                 {{ $messages }}
             </div>
         @endisset
-        {{-- <x-tall-alert on="notification">Savel</x-tall-alert> --}}
+
         @isset($rigth)
             <div class="col-span-12 lg:col-span-{{ data_get($formAttr, 'spanRigth', '4') }}">
                 <div class="card p-4 sm:p-5">
@@ -54,7 +47,7 @@
                 </div>
             </div>
         @endisset
-        <div class="col-span-12 lg:col-span-{{ data_get($formAttr, 'span', '8') }} ">
+        <form {{ $attributes }} class="col-span-12 lg:col-span-{{ data_get($formAttr, 'span', '8') }} ">
             <div class="card">
                 <div
                     class="flex flex-col items-center space-y-4 border-b border-slate-200 p-4 dark:border-navy-500 sm:flex-row sm:justify-between sm:space-y-0 sm:px-5">
@@ -68,7 +61,6 @@
                                 {{ __('Cancel') }}
                             </a>
                         @endif
-
                         <button
                             class="btn min-w-[7rem] rounded-full bg-primary font-medium text-white hover:bg-primary-focus focus:bg-primary-focus active:bg-primary-focus/90 dark:bg-accent dark:hover:bg-accent-focus dark:focus:bg-accent-focus dark:active:bg-accent/90">
                             {{ __('Save or Update') }}
@@ -85,7 +77,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
         @isset($left)
             <div class="col-span-12 lg:col-span-{{ data_get($formAttr, 'spanLeft', '4') }}">
                 <div class="card p-4 sm:p-5">
@@ -94,4 +86,4 @@
             </div>
         @endisset
     </div>
-</form>
+</div>
