@@ -106,3 +106,11 @@ if (!function_exists('select')) {
        return Field::select($label,$name, $options);
     }
 }
+
+if (!function_exists('icones')) {
+    
+    function icones($label, $name = null, $options=[]){
+       return Field::select($label,$name, $options);
+    }
+}
+

@@ -33,10 +33,31 @@ class Field extends AbstractField
         return $field;
     }
 
+    public static function password($label, $name=null)
+    {
+        $field = new static($label, $name);
+        $field->attribute('type','password');
+        return $field;
+    }
+
     public static function phone($label, $name=null)
     {
         $field = new static($label, $name);
         $field->attribute('type','phone');
+        return $field;
+    }
+
+    public static function file($label, $name=null)
+    {
+        $field = new static($label, $name);
+        $field->attribute('type','file');
+        return $field;
+    }
+
+    public static function color($label, $name=null)
+    {
+        $field = new static($label, $name);
+        $field->attribute('type','color');
         return $field;
     }
 
@@ -103,6 +124,17 @@ class Field extends AbstractField
         return $field;
     }
 
+    public static function status($label="Status", $name='status', $options=['draft','published'])
+    {
+        $field = new static($label, $name);
+        $field->attribute('type','radio');
+        $field->component = "radio";
+        $field->flex = "row space-x-2";
+        $field->options(array_combine($options,$options));
+     
+        return $field;
+    }
+
     public static function checkbox($label, $name=null, $options=1)
     {
         $field = new static($label, $name);
@@ -118,6 +150,23 @@ class Field extends AbstractField
     }
 
 
+
+    public static function icone($options,$label="Icone", $name='icone')
+    {
+        $field = new static($label, $name);
+        $field->component = "tom";
+        $field->options($options);
+        return $field;
+    }
+
+    public static function tom($label, $name=null, $options=[])
+    {
+        $field = new static($label, $name);
+        $field->component = "tom-select";
+        $field->options($options);
+     
+        return $field;
+    }
 
     public static function select($label, $name=null, $options=[])
     {

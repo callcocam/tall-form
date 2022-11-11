@@ -1,37 +1,15 @@
-<x-tall-app-form :formAttr="$formAttr">
-    <x-tall-input-detail label="Name">
-        <x-slot name="help">
-            The input element with a type attribute whose value is "text" represents a one-line plain text edit control
-            for the input elements value. Check out code for detail of usage.
+<x-tall-app-form-main :formAttr="$formAttr">
+    <x-tall-app-form :formAttr="$formAttr">
+        <x-slot name="messages">
+            <x-tall-errors :$errors :$fields />
         </x-slot>
-        <x-tall-input />
-    </x-tall-input-detail>
-    <x-tall-input-detail label="Rota">
-        <x-slot name="help">
-            The input element with a type attribute whose value is "text" represents a one-line plain text edit control
-            for the input elements value. Check out code for detail of usage.
-        </x-slot>
-        <x-tall-input />
-    </x-tall-input-detail>
-    <x-tall-input-detail label="Rota">
-        <x-slot name="help">
-            The input element with a type attribute whose value is "text" represents a one-line plain text edit control
-            for the input elements value. Check out code for detail of usage.
-        </x-slot>
-        <x-tall-textarea />
-    </x-tall-input-detail>
-    <x-tall-input-detail label="Rota">
-        <x-slot name="help">
-            The input element with a type attribute whose value is "text" represents a one-line plain text edit control
-            for the input elements value. Check out code for detail of usage.
-        </x-slot>
-        <x-tall-editor />
-    </x-tall-input-detail>
-    <x-tall-input-detail label="Ativar app">
-        <x-slot name="help">
-            The input element with a type attribute whose value is "text" represents a one-line plain text edit control
-            for the input elements value. Check out code for detail of usage.
-        </x-slot>
-        <x-tall-toggle />
-    </x-tall-input-detail>
-</x-tall-app-form>
+        @if ($fields)
+            @foreach ($fields as $field)
+                <x-tall-label :field="$field">
+                    <x-dynamic-component component="tall-{{ $field->component }}" :field="$field" />
+                    <x-tall-input-error :for="$field->key" />
+                </x-tall-label>
+            @endforeach
+        @endif
+    </x-tall-app-form>
+</x-tall-app-form-main>
