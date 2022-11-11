@@ -18,7 +18,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Tall\\Form\\FormServiceProvider"
+                "Tall\\Form\\Providers\\FormServiceProvider"
             ]
         }
     },
