@@ -10,6 +10,9 @@
         "callcocam/tall-theme": "dev-main"
     },
     "autoload": {
+        "files": [
+            "helpers.php"
+        ],
         "psr-4": {
             "Tall\\Form\\": "src"
         }
