@@ -8,6 +8,7 @@ namespace Tall\Form\Fields;
 
 use Illuminate\Support\Facades\Storage;
 use Tall\Form\AbstractField;
+use Tall\Theme\Models\Status;
 
 class Field extends AbstractField
 {
@@ -126,11 +127,23 @@ class Field extends AbstractField
 
     public static function status($label="Status", $name='status', $options=['draft','published'])
     {
+        if(class_exists(Status::class)){
+            $name = 'status_id';
+        }
+
         $field = new static($label, $name);
+
+
         $field->attribute('type','radio');
         $field->component = "radio";
         $field->flex = "row space-x-2";
-        $field->options(array_combine($options,$options));
+        if(class_exists(Status::class)){
+            $field->options(Status::query()->pluck('name','id')->toArray());
+        }
+        else{
+            $field->options(array_combine($options,$options));
+        }
+        
      
         return $field;
     }
