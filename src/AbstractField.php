@@ -8,9 +8,7 @@ namespace Tall\Form;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\File;
 use SplFileInfo;
-use Tall\Theme\Models\Image;
 
 abstract class AbstractField
 {
@@ -30,6 +28,7 @@ abstract class AbstractField
     protected $event;
     protected $help;
     protected $value;
+    protected $visible = true;
     protected $isLabel = true;
 
     public function __construct($label, $name=null)
@@ -144,7 +143,7 @@ abstract class AbstractField
 
     public function hiddenIf($condition)
     {
-      $this->viseble = $condition;
+      $this->visible = $condition;
 
       return $this;
     }

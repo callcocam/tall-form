@@ -138,7 +138,14 @@ class Field extends AbstractField
         $field->component = "radio";
         $field->flex = "row space-x-2";
         if(class_exists(Status::class)){
-            $field->options(Status::query()->pluck('name','id')->toArray());
+            if (cache()->has($name)) {
+                $result = cache()->get($name);
+            }
+            else{
+                $result = Status::query()->pluck('name','id')->toArray();
+                cache()->put($name, $result);
+            }           
+            $field->options($result);
         }
         else{
             $field->options(array_combine($options,$options));

@@ -41,13 +41,13 @@
         @endisset
 
         @isset($rigth)
-            <div class="col-span-12 lg:col-span-{{ data_get($formAttr, 'spanRigth', '4') }}">
+            <div class="col-span-12 md:col-span-{{ data_get($formAttr, 'spanRigth', '4') }}">
                 <div class="card p-4 sm:p-5">
                     {{ $rigth }}
                 </div>
             </div>
         @endisset
-        <form {{ $attributes }} class="col-span-12 lg:col-span-{{ data_get($formAttr, 'span', '8') }} ">
+        <form {{ $attributes }} class="col-span-12 md:col-span-{{ data_get($formAttr, 'span', '8') }} ">
             <div class="card">
                 <div
                     class="flex flex-col items-center space-y-4 border-b border-slate-200 p-4 dark:border-navy-500 sm:flex-row sm:justify-between sm:space-y-0 sm:px-5">
@@ -79,11 +79,15 @@
             </div>
         </form>
         @isset($left)
-            <div class="col-span-12 lg:col-span-{{ data_get($formAttr, 'spanLeft', '4') }}">
+            <div class="col-span-12 md:col-span-4">
                 <div class="card p-4 sm:p-5">
                     {{ $left }}
                 </div>
             </div>
         @endisset
+
     </div>
+    @isset($footer)
+    {{ $footer }}
+    @endisset
 </div>

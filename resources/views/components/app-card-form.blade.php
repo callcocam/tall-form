@@ -1,5 +1,3 @@
-<form {{ $attributes }} class="w-full">
-    <div class="card">
-        {{ $slot }}
-    </div>
+<form {{ $attributes }}>
+    {{ $slot }}
 </form>

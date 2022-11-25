@@ -1,5 +1,5 @@
 @props(['field', 'flex' => 'col'])
-<div class="{{ sprintf('col-span-%s', $field->span) }}">
+<div class="col-span-12 {{ sprintf('md:col-span-%s', $field->span) }}">
     @if ($field->isLabel)
         <label class="block">
     @endif
