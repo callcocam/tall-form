@@ -155,7 +155,7 @@ class Field extends AbstractField
         return $field;
     }
 
-    public static function checkbox($label, $name=null, $options=1)
+    public static function checkbox($label, $name=null, $options=null)
     {
         $field = new static($label, $name);
         $field->attribute('type','checkbox');

@@ -119,7 +119,7 @@ abstract class AbstractField
     {
         $this->options  = $options;
 
-        $this->multiple = true;
+        // $this->multiple = true;
 
         return $this;
     }
