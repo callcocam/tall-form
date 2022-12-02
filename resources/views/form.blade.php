@@ -6,7 +6,7 @@
         @if ($fields)
             @foreach ($fields as $field)
                 <x-tall-label :field="$field">
-                    <x-dynamic-component component="tall-{{ $field->component }}" :field="$field" />
+                    <x-dynamic-component component="tall-{{ $field->component }}" :field="$field" :model="$model"/>
                     <x-tall-input-error :for="$field->key" />
                 </x-tall-label>
             @endforeach

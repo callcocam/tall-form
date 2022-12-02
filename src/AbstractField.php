@@ -27,7 +27,11 @@ abstract class AbstractField
     protected $options = [];
     protected $event;
     protected $help;
-    protected $value;
+    protected $value;  
+    /**
+    * @var
+    */
+    protected $formatCallback;
     protected $visible = true;
     protected $isLabel = true;
 
@@ -66,6 +70,37 @@ abstract class AbstractField
         $this->component  = $component;
 
         return $this;
+    }
+    
+    /**
+     * @return bool
+     */
+    public function isFormatted(): bool
+    {
+        return is_callable($this->formatCallback);
+    }
+
+    /**
+     * @param callable $callable
+     *
+     * @return $this
+     */
+    public function format(callable $callable)
+    {
+        $this->formatCallback = $callable;
+
+        return $this;
+    }
+
+    /**
+     * @param $model
+     * @param $column
+     *
+     * @return mixed
+     */
+    public function formatted($model, $field, $key, $value)
+    {
+        return app()->call($this->formatCallback, compact('model','field','key','value'));
     }
 
     public function multiple($multiple)
