@@ -7,6 +7,8 @@
         @foreach ($options as $key => $values)
             @if (is_string($values))
                 <option value="{{ $key }}"> {{ $values }}</option>
+            @elseif(is_numeric($values))
+                <option value="{{ $key }}"> {{ $values }}</option>
             @elseif(is_array($values))
                 <optgroup label="{{ $key }}">
                     @foreach ($values as $group => $value)

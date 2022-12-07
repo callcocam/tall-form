@@ -11,4 +11,10 @@ use Tall\Orm\Http\Livewire\FormComponent as LivewireFormComponent;
 abstract class FormComponent extends LivewireFormComponent
 {
     
+    
+    
+    public function closeModal()
+    {
+        $this->showModal = false;
+    }
 }
